@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	/bin/bash ~/.config/rofi/launchers/type-1/launcher.sh
+	/bin/bash ~/.config/rofi/launchers/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -16,7 +16,7 @@ super + Escape
 
 #Powermenu
 super + alt + p
-	/bin/bash ~/.config/rofi/powermenu/type-2/powermenu.sh
+	/bin/bash ~/.config/rofi/powermenu/powermenu.sh
 
 #Captura de pantalla
 super + alt + s
