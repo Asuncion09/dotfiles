@@ -8,9 +8,9 @@ wmname LG3D &
 
 $HOME/.config/polybar/poly/launch.sh
 
-pgrep -x picom > /dev/null || picom --config /home/daniel/.config/picom/picom.conf &
+pgrep -x picom > /dev/null || picom --config ~/.config/picom/picom.conf &
 
-feh --bg-fill ~/Imágenes/wallpapers/dracula-cat.png
+feh --bg-fill ~/Imágenes/wallpapers/arco-blue.png
 
 bspc monitor -d I II III IV V
 

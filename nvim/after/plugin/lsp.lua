@@ -4,14 +4,6 @@ lsp.preset('recommended')
 
 
 lsp.ensure_installed({
-  -- Replace these with whatever servers you want to install
-  'tsserver',
-  'eslint',
-  'bashls',
-  'cssls',
-  'quick_lint_js',
-  'intelephense',
-  'sqlls',
 })
 
 lsp.on_attach(

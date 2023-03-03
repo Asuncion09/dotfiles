@@ -10,6 +10,8 @@ vim.opt.number = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0
+
+-- external copy
 vim.g.clipboard = {
 	name = 'xclip',
 	copy = {
@@ -22,3 +24,8 @@ vim.g.clipboard = {
    },
    cache_enabled = 1,
 }
+
+-- terminal
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+

@@ -1,7 +1,7 @@
 function UseColorScheme(color)
-	color = "dracula"
+	color = "catppuccin-mocha"
 	vim.cmd.colorscheme(color)
 end
 
-UseColorScheme()
+ UseColorScheme()
 

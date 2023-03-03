@@ -39,8 +39,7 @@ return require('packer').startup(function(use)
 	  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
-  -- using packer.nvim
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
  
   use "lukas-reineke/indent-blankline.nvim"
 
@@ -82,8 +81,14 @@ return require('packer').startup(function(use)
     end
  }
 
+-- DAP
+ use 'mfussenegger/nvim-dap'
+ use 'mfussenegger/nvim-dap-python'
+
 
 
 
 end)
+
+
 
