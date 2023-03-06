@@ -104,7 +104,7 @@ inputbar {
     border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @border-colour;
-    text-color:                  @foreground-colour;
+    text-color:                  @alternate-background;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
@@ -138,7 +138,7 @@ num-filtered-rows {
 }
 textbox-num-sep {
     enabled:                     true;
-    expand:                      false;
+    expand:                      true;
     str:                         "/";
     background-color:            inherit;
     text-color:                  inherit;
@@ -162,7 +162,7 @@ listview {
     lines:                       9;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   false;
+    scrollbar:                   true;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -179,9 +179,9 @@ listview {
     cursor:                      "default";
 }
 scrollbar {
-    handle-width:                5px ;
-    handle-color:                @handle-colour;
-    border-radius:               10px;
+    handle-width:                4px ;
+    handle-color:                @selected-normal-background;
+    border-radius:               15px;
     background-color:            @alternate-background;
 }
 
