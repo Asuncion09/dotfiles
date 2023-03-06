@@ -14,7 +14,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import                          "shared/fonts.rasi"
-@import         "~/.config/rofi/colors/dracula.rasi"
+@import         "~/.config/rofi/colors/catppuccin.rasi"
 
 /*
 USE_BUTTONS=YES

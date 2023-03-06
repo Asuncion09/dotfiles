@@ -4,6 +4,23 @@ lsp.preset('recommended')
 
 
 lsp.ensure_installed({
+	"autoflake",
+    "bash-language-server",
+    "css-lsp",
+    "cssmodules-language-server",
+    "curlylint",
+    "debugpy",
+    "djlint",
+    "eslint-lsp",
+    "grammarly-languageserver",
+    "html-lsp",
+    "prettier",
+    "python-lsp-server",
+    "quick-lint-js",
+    "sqlls",
+    "taplo",
+    "typescript-language-server",
+    "vim-language-server",
 })
 
 lsp.on_attach(
