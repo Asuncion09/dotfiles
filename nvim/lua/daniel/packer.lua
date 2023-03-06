@@ -2,7 +2,7 @@
 return require('packer').startup(function(use)
 -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use({"catppuccin/nvim", as = "catppuccin"})
+  use { "catppuccin/nvim", as = "catppuccin" }
   use({"folke/tokyonight.nvim", as = "tokyonight"})
   use({
   	"nvim-telescope/telescope.nvim",
