@@ -12,5 +12,5 @@ vim.keymap.set("n", "<esc>", ":noh<return><esc>", opts)
 vim.keymap.set("n", "<leader>D", ":wa<CR>:bd!<CR>", opts)
 
 -- Terminal
-vim.keymap.set("n", "<c-t>", ":split<CR>:ter<CR>:resize 15<CR>", opts)
+vim.keymap.set("n", "<c-t>", ":split<CR>:ter<CR>:resize 10<CR>", opts)
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)

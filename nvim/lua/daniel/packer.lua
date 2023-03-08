@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
  use 'tanvirtin/monokai.nvim'
 -- use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
 
- use 'Mofiqul/dracula.nvim'
+ use 'dracula/vim'
  use {
     'numToStr/Comment.nvim',
     config = function()
