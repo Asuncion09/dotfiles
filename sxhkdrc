@@ -182,4 +182,5 @@ ctrl + alt + c
 ctrl + alt + a
 	code --user-data-dir ~/code_profiles/djsr/data
 
-
+ctrl + alt + p
+	colorpicker --short --one-shot | xsel -b
