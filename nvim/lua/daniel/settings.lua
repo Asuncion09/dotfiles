@@ -5,6 +5,7 @@ vim.opt.errorbells = false
 vim.opt.swapfile = false
 vim.opt.signcolumn = "yes"
 vim.opt.number = true
+vim.opt.fillchars = { eob = ' ' }
 
 -- Indentacion de 4 espacios
 vim.opt.tabstop = 4
