@@ -178,9 +178,6 @@ ctrl + alt + w
 ctrl + alt + c
 	google-chrome-stable
 
-#Desarrollo en php
-ctrl + alt + a
-	code --user-data-dir ~/code_profiles/djsr/data
-
+# Color Picker
 ctrl + alt + p
 	colorpicker --short --one-shot | xsel -b
