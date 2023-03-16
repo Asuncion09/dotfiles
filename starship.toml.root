@@ -86,7 +86,7 @@ $shell\
 #success_symbol = "[❯](bold green)"
 
 [username]
-format = "[](bg:#1e1e2e fg:#cba6f7)[  ](bg:#cba6f7 fg:#1e1e2e)"
+format = "[](bg:#1e1e2e fg:#cba6f7)[ 󰌋 ](bg:#cba6f7 fg:#1e1e2e)"
 
 [aws]
 symbol = "  "
