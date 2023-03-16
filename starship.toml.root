@@ -115,7 +115,7 @@ format = "[](bg:#1e1e2e fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd9
 
 [directory]
 #read_only = " "
-style = "bg:#45475a fg:#f8f8f2"
+style = "bg:#45475a fg:#b4befe"
 format = "[ $path ]($style)[ ](fg:#45475a)"
 truncation_length = 3
 truncation_symbol = "../"
