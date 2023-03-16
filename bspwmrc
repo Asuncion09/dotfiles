@@ -3,13 +3,20 @@
 xsetroot -cursor_name left_ptr
 pgrep -x sxhkd > /dev/null || sxhkd &
 
+# inicializar dunst
+pkill dunst
+dunst -conf ~/.config/dunst/dunstrc &
+
 #Resolver problema de java
 wmname LG3D &
 
+# Habilitar polybar
 $HOME/.config/polybar/poly/launch.sh
 
+# Iniciar picom
 pgrep -x picom > /dev/null || picom --config ~/.config/picom/picom.conf &
 
+# Colocat Fondo de pantalla
 feh --bg-fill ~/Imágenes/wallpapers/arco-blue.png
 
 bspc monitor -d I II III IV V
