@@ -166,7 +166,7 @@ style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
 [java]
-symbol = " "
+symbol = " "
 style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
@@ -201,7 +201,7 @@ style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
 [nodejs]
-symbol = " "
+symbol = "󰎙 "
 style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
@@ -265,7 +265,7 @@ style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
 [rust]
-symbol = " "
+symbol = "󱘗 "
 style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
@@ -280,7 +280,7 @@ style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
 [php]
-symbol = " "
+symbol = " "
 style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#1E1E2E fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#1E1E2E)"
 
