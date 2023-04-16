@@ -65,7 +65,7 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      1px solid;
+    border:                      0px solid;
     border-radius:               4px;
     border-color:                @border-colour;
     cursor:                      "default";
@@ -103,8 +103,8 @@ inputbar {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;
-    background-color:            @border-colour;
-    text-color:                  @alternate-background;
+    background-color:            @background-colour;
+    text-color:                  @border-colour;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
