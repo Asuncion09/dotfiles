@@ -24,10 +24,10 @@ super + alt + s
 
 #brillo
 XF86MonBrightnessUp
-	brightnessctl set +5%
+	brightnessctl set +2%
 
 XF86MonBrightnessDown
-	brightnessctl set 5%-
+	brightnessctl set 2%-
 
 #VolumenF8
 XF86AudioRaiseVolume
@@ -181,3 +181,7 @@ ctrl + alt + c
 # Color Picker
 ctrl + alt + p
 	colorpicker --short --one-shot | xsel -b
+
+ctrl + alt + l
+  libreoffice -o /home/daniel/Documentos/Novelas/Escrituras/travesía.odt
+
