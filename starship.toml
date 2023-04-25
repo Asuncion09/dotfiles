@@ -252,7 +252,7 @@ format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd9
 [python]
 symbol = " "
 style = "bg:#bd93f9 fg:#45475a"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ($virtualenv) ]($style)[](bg:#bd93f9 fg:#282a36)"
+format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[$virtualenv ](bg:#bd93f9 fg:#45475a)[](bg:#bd93f9 fg:#282a36)"
 
 [rlang]
 symbol = "ﳒ "
@@ -267,6 +267,7 @@ format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd9
 [rust]
 symbol = "󱘗 "
 style = "bg:#bd93f9 fg:#45475a"
+version_format = 'v${minor}'
 format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
 
 [scala]
