@@ -24,10 +24,10 @@ super + alt + s
 
 #brillo
 XF86MonBrightnessUp
-	brightnessctl set +2%
+	brightnessctl set +4%
 
 XF86MonBrightnessDown
-	brightnessctl set 2%-
+	brightnessctl set 4%-
 
 #VolumenF8
 XF86AudioRaiseVolume
