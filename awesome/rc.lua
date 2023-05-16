@@ -46,6 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.useless_gap = 4
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -443,7 +444,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = { border_width = 3,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -525,30 +526,30 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
+    -- awful.titlebar(c) : setup {
+        -- { -- Left
+            -- awful.titlebar.widget.iconwidget(c),
+            -- buttons = buttons,
+            -- layout  = wibox.layout.fixed.horizontal
+        -- },
+        -- { -- Middle
+            -- { -- Title
+                -- align  = "center",
+                -- widget = awful.titlebar.widget.titlewidget(c)
+            -- },
+            -- buttons = buttons,
+            -- layout  = wibox.layout.flex.horizontal
+        -- },
+        -- { -- Right
             -- awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
+            -- awful.titlebar.widget.maximizedbutton(c),
             -- awful.titlebar.widget.stickybutton   (c),
             -- awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
+            -- awful.titlebar.widget.closebutton    (c),
+            -- layout = wibox.layout.fixed.horizontal()
+        -- },
+        -- layout = wibox.layout.align.horizontal
+    -- }
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
