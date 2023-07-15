@@ -14,7 +14,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import                          "shared/fonts.rasi"
-@import         "~/.config/rofi/colors/dracula.rasi"
+@import                          "shared/colors.rasi"
 
 /*
 USE_BUTTONS=YES
@@ -24,12 +24,12 @@ USE_BUTTONS=YES
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    east;
-    anchor:                      east;
+    location:                    north;
+    anchor:                      north;
     fullscreen:                  false;
-    width:                       50px;
-    x-offset:                    -15px;
-    y-offset:                    0px;
+    width:                       300px;
+    x-offset:                    0px;
+    y-offset:                    5px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -122,8 +122,8 @@ error-message {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       5;
+    columns:                     6;
+    lines:                       1;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -148,7 +148,7 @@ element {
     enabled:                     true;
     spacing:                     0px;
     margin:                      0px;
-    padding:                     8px 5px;
+    padding:                     6px 3px;
     border:                      0px solid;
     border-radius:               4px;
     border-color:                @selected;
@@ -157,7 +157,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather bold 16";
+    font:                        "feather bold 14";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
