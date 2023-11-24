@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import                          "shared/fonts.rasi"
-@import                          "shared/colors.rasi"
+@import                          "~/.config/rofi/colors/dracula.rasi"
 
 * {
     border-colour:               var(selected);
@@ -115,7 +115,7 @@ prompt {
 }
 textbox-prompt-colon {
     enabled:                     true;
-    padding:                     5px 0px;
+    padding:                     5px 5px;
     expand:                      false;
     str:                         "";
     background-color:            inherit;
