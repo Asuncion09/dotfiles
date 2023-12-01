@@ -30,12 +30,30 @@ return {
     },
     opts = {
       options = {
-        mode = "tabs",
+        -- mode = "tabs",
         -- separator_style = "slant",
         show_buffer_close_icons = false,
         show_close_icon = false,
       },
     },
+  },
+
+  -- LuaSnippets
+  {
+    "L3MON4D3/LuaSnip",
+    event = "VeryLazy",
+    wants = "friendly-snippets",
+    requires = {
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      require("luasnip").filetype_extend("javascript", { "html" })
+      require("luasnip").filetype_extend("javascriptreact", { "html" })
+      require("luasnip").filetype_extend("javascriptreact", { "javascript" })
+      require("luasnip").filetype_extend("typescriptreact", { "html" })
+      require("luasnip").filetype_extend("html", { "javascript" })
+      require("luasnip").filetype_extend("handlebars", { "html" })
+    end,
   },
 
   -- statusline
@@ -48,36 +66,6 @@ return {
         theme = "auto",
       },
     },
-  },
-
-  -- filename
-  {
-    "b1o/incline.nvim",
-    event = "BufReadPre",
-    priority = 1201,
-    config = function()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guibg = "#BD94F9", guifg = "#21222C" },
-            InclineNormalNC = { guifg = "#F9F8F2", guibg = "#3E4452" },
-          },
-        },
-        window = { margin = { vertical = 1, horizontal = 1 } },
-        hide = {
-          cursorline = true,
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          if vim.bo[props.buf].modified then
-            filename = "[+] " .. filename
-          end
-
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
-        end,
-      })
-    end,
   },
 
   -- Logo

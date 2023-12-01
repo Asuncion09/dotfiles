@@ -8,7 +8,7 @@ $hostname\
 $localip\
 $singularity\
 $kubernetes\
-[](bg:#282a36 fg:#45475a)\
+[](bg:#282a36 fg:#282a36)\
 $directory\
 """
 right_format = """

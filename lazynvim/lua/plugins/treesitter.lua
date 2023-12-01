@@ -22,6 +22,7 @@ return {
         "sxhkdrc",
         "astro",
         "cmake",
+        "gitignore",
         "http",
         "scss",
         "sql",

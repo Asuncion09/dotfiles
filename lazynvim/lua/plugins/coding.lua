@@ -1,5 +1,7 @@
 return {
-  "smjonas/inc-rename.nvim",
-  cmd = "IncRenamce",
-  config = true,
+  {
+    "smjonas/inc-rename.nvim",
+    cmd = "IncRenamce",
+    config = true,
+  },
 }

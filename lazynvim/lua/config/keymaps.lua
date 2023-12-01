@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local discipline = require("daniel.discipline")
--- discipline.cowboy()
+discipline.cowboy()
 
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
