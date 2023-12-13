@@ -16,10 +16,10 @@ require("lazy").setup({
       opts = { colorscheme = "catppuccin-macchiato" },
     },
     -- import any extras modules here
-    { import = "lazyvim.plugins.extras.linting.eslint" },
+    -- { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.formatting.black" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
+    -- { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.lang.python-semshi" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
