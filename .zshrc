@@ -73,8 +73,8 @@ eval "$(starship init zsh)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-syntax-highlighting
 	zsh-autosuggestions
+	zsh-syntax-highlighting
 	sudo
 )
 
@@ -106,7 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 #list
 alias ls='lsd --color=auto'
 alias la='lsd -a'
@@ -127,9 +126,7 @@ alias cl="printf '\033[2J\033[3J\033[1;1H'"
 alias amdb="sudo systemctl start mongodb"
 alias dmdb="sudo systemctl stop mongodb"
 alias smdb="sudo systemctl status mongodb"
-alias busca="sudo nala search"
-alias instala="sudo nala install"
-alias actualiza="sudo nala update;sudo nala upgrade"
+alias adocker="sudo systemctl start docker.service"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"

@@ -21,7 +21,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @import                          "shared/fonts.rasi"
-@import                          "~/.config/rofi/colors/dracula.rasi"
+@import                          "shared/colors.rasi"
 
 * {
     border-colour:               var(selected);
@@ -54,12 +54,12 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west south;
-    anchor:                      west south;
+    location:                    west north;
+    anchor:                      west north;
     fullscreen:                  false;
     width:                       300px;
-    x-offset:                    12px;
-  	y-offset:                    -45px;
+    x-offset:                    8px;
+  	y-offset:                    38px;
 
     /* properties for all widgets */
     enabled:                     true;

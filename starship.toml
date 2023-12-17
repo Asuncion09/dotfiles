@@ -8,7 +8,7 @@ $hostname\
 $localip\
 $singularity\
 $kubernetes\
-[](bg:#282a36 fg:#282a36)\
+[](bg:#2e3440 fg:#4C566A)\
 $directory\
 """
 right_format = """
@@ -113,8 +113,8 @@ format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd9
 
 [directory]
 #read_only = " "
-style = "bg:#45475a fg:#b4befe"
-format = "[ $path ]($style)[ ](fg:#45475a)"
+style = "bg:#4C566A fg:#b4befe"
+format = "[ $path ]($style)[ ](fg:#4C566A)"
 truncation_length = 3
 truncation_symbol = "../"
 
