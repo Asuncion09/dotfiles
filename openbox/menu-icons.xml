@@ -141,7 +141,7 @@
 			<separator/>
 			<item icon="&icons;/sys-sleep.png" label="Suspend">
 				<action name="Execute">
-					<command>&pipes;/ac-powermenu --suspent</command>
+					<command>&pipes;/ac-powermenu --suspend</command>
 				</action>
 			</item>
 			<separator/>

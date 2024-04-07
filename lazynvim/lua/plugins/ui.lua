@@ -32,7 +32,7 @@ return {
       options = {
         -- mode = "tabs",
         -- separator_style = "slant",
-        show_buffer_close_icons = false,
+        show_buffer_close_icons = true,
         show_close_icon = false,
       },
     },
@@ -56,6 +56,17 @@ return {
     end,
   },
 
+  -- Mini cursor animation
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.scroll = {
+        enable = false,
+      }
+    end,
+  },
+
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
@@ -66,6 +77,49 @@ return {
         theme = "auto",
       },
     },
+  },
+
+  -- filename
+  -- {
+  --   "b0o/incline.nvim",
+  --   event = "BufReadPre",
+  --   priority = 1200,
+  --   config = function()
+  --     require("incline").setup({
+  --       highlight = {
+  --         groups = {
+  --           InclineNormal = { guibg = "#F1FA8C", guifg = "#44475A" },
+  --           InclineNormalNC = { guifg = "#282A36", guibg = "#BD93F9" },
+  --         },
+  --       },
+  --       window = { margin = { vertical = 0, horizontal = 1 } },
+  --       hide = {
+  --         cursorline = true,
+  --       },
+  --       render = function(props)
+  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+  --         if vim.bo[props.buf].modified then
+  --           filename = "[+] " .. filename
+  --         end
+  --
+  --         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+  --         return { { icon, guifg = color }, { " " }, { filename } }
+  --       end,
+  --     })
+  --   end,
+  -- },
+
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
 
   -- Logo

@@ -3,12 +3,13 @@ scan_timeout = 10
 command_timeout = 1200
 
 format = """
-$username\
 $hostname\
 $localip\
 $singularity\
 $kubernetes\
-[](bg:#cba6f7 fg:#45475a)\
+[](bg:#282a36 fg:#ff5555 )\
+$os\
+[](bg:#45475a fg:#ff5555)\
 $directory\
 """
 right_format = """
@@ -285,4 +286,9 @@ format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd9
 symbol = " "
 style = "bg:#bd93f9 fg:#45475a"
 format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+
+[os]
+format = '[$symbol]($style)'
+style = "fg:#d9d9d0 bg:#ff5555"
+disabled = false
 

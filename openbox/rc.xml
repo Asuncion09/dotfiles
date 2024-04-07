@@ -25,14 +25,14 @@
   </placement>
   <!-- Theme -->
   <theme>
-    <name>Nordic</name>
-    <titleLayout>DLIMC</titleLayout>
-    <keepBorder>no</keepBorder>
+    <name>Dracula</name>
+    <titleLayout>MLC</titleLayout>
+    <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>JetBrains Mono</name>
+      <name>JetBrains Mono Medium</name>
       <size>9</size>
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
@@ -91,10 +91,10 @@
   </resize>
   <!-- Margin -->
   <margins>
-    <top>8</top>
-    <bottom>43</bottom>
-    <left>8</left>
-    <right>8</right>
+    <top>10</top>
+    <bottom>40</bottom>
+    <left>10</left>
+    <right>10</right>
   </margins>
   <!-- Dock -->
   <dock>
@@ -367,8 +367,8 @@
     <keybind key="W-Down">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <width>65%</width>
-        <height>83%</height>
+        <width>60%</width>
+        <height>80%</height>
       </action>
       <action name="MoveToCenter"/>
     </keybind>
@@ -690,7 +690,7 @@
     <!-- Rofi -->
     <keybind key="A-F1">
       <action name="Execute">
-        <command>launcher</command>
+        <command>rofi-launcher</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -700,27 +700,27 @@
     </keybind>
     <keybind key="W-b">
       <action name="Execute">
-        <command>bluetooth</command>
+        <command>rofi-bluetooth</command>
       </action>
     </keybind>
     <keybind key="W-m">
       <action name="Execute">
-        <command>music</command>
+        <command>rofi-music</command>
       </action>
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>powermenu</command>
+        <command>rofi-powermenu</command>
       </action>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-        <command>screenshot</command>
+        <command>rofi-screenshot</command>
       </action>
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>runner</command>
+        <command>rofi-runner</command>
       </action>
     </keybind>
     <!-- CLI Apps -->
@@ -773,7 +773,7 @@
   </keyboard>
   <!-- ################################ Mouse Settings ################################ -->
   <mouse>
-    <dragThreshold>4</dragThreshold>
+    <dragThreshold>1</dragThreshold>
     <doubleClickTime>200</doubleClickTime>
     <screenEdgeWarpTime>400</screenEdgeWarpTime>
     <screenEdgeWarpMouse>false</screenEdgeWarpMouse>
@@ -1051,7 +1051,7 @@
         <y>center</y>
       </position>
     </application>
-    <application name="polybar">
+    <application class="Polybar">
       <layer>below</layer>
     </application>
     <application name="obconf">

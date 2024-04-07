@@ -73,9 +73,9 @@ eval "$(starship init zsh)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+	sudo
 	zsh-autosuggestions
 	zsh-syntax-highlighting
-	sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,8 +118,9 @@ alias cd..='cd ..'
 alias pdw='pwd'
 
 # Custom
-alias amy="sudo systemctl start mariadb"
-alias dmy="sudo systemctl stop mariadb"
+alias amy="sudo systemctl start mysqld"
+alias dmy="sudo systemctl stop mysqld"
+alias smy="sudo systemctl status mysqld"
 alias icat="kitty +kitten icat"
 alias asnap="sudo systemctl start snapd.service"
 alias cl="printf '\033[2J\033[3J\033[1;1H'"
@@ -127,6 +128,18 @@ alias amdb="sudo systemctl start mongodb"
 alias dmdb="sudo systemctl stop mongodb"
 alias smdb="sudo systemctl status mongodb"
 alias adocker="sudo systemctl start docker.service"
+alias instala="sudo pacman -S"
+alias busca="sudo pacman -Ss"
+alias actualiza="sudo pacman -Syu"
 
+export PATH=/opt/nvim/bin:$PATH
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/daniel/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

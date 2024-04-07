@@ -46,8 +46,8 @@ return {
         use_libuv_file_watcher = true,
       },
       window = {
-        position = "left",
-        width = 30,
+        position = "right",
+        width = 35,
         mappings = {
           ["<space>"] = "none",
         },
@@ -55,6 +55,7 @@ return {
       default_component_configs = {
         indent = {
           with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+          with_markers = false,
           expander_collapsed = "",
           expander_expanded = "",
           expander_highlight = "NeoTreeExpander",
@@ -69,6 +70,12 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
+        enabled = vim.fn.executable("make") == 1,
+        config = function()
+          Util.on_load("telescope.nvim", function()
+            require("telescope").load_extension("fzf")
+          end)
+        end,
       },
       "nvim-telescope/telescope-file-browser.nvim",
     },

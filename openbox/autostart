@@ -23,7 +23,7 @@ xfce4-power-manager &
 exec picom &
 
 ## Launch Polybar or Tint2
-bash ~/.config/openbox-themes/themes/launch-bar.sh
+bash ~/.config/openbox/themes/launch-bar.sh
 
 ## Notification Daemon
 exec dunst &
@@ -32,7 +32,7 @@ exec dunst &
 exec mpd &
 
 ## Launch Plank
-## exec plank &
+exec plank &
 
 ## Thunar Daemon
 exec thunar --daemon &
