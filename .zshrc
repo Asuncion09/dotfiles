@@ -128,9 +128,11 @@ alias amdb="sudo systemctl start mongodb"
 alias dmdb="sudo systemctl stop mongodb"
 alias smdb="sudo systemctl status mongodb"
 alias adocker="sudo systemctl start docker.service"
+alias sdocker="sudo systemctl status docker.service"
 alias instala="sudo pacman -S"
 alias busca="sudo pacman -Ss"
 alias actualiza="sudo pacman -Syu"
+alias rm="trash"
 
 export PATH=/opt/nvim/bin:$PATH
 export VOLTA_HOME="$HOME/.volta"
@@ -144,3 +146,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 . "$HOME/.cargo/env"
+
+# Iniciar ssh-agent automáticamente
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)" > /dev/null
+  ssh-add ~/.ssh/id_ed25519 2>/dev/null
+fi
+export PATH="$HOME/.local/bin:$PATH"

@@ -1,0 +1,137 @@
+# ============================================================
+#  Ghostty config — migrado desde kitty.conf
+#  Para: ~/.config/ghostty/config.ghostty
+#  Recargar en caliente: Ctrl+Shift+,
+# ============================================================
+
+
+# ----------------------------
+# Fuente
+# ----------------------------
+font-family = JetBrainsMono Nerd Font
+font-size = 10
+font-style = bold
+font-style-italic = italic
+font-style-bold-italic = bold italic
+
+# Las ligaduras estaban activadas en kitty (disable_ligatures never)
+font-feature = +liga
+font-feature = +calt
+
+
+# ----------------------------
+# Ventana
+# ----------------------------
+window-width  = 960
+window-height = 600
+
+# Ghostty no recuerda el tamaño entre sesiones por defecto;
+# los valores de arriba aplican en cada arranque (equivalente a remember_window_size no).
+
+window-padding-x = 3
+window-padding-y = 3
+window-padding-balance = true
+
+# Hyprland maneja las decoraciones → desactivar las de Ghostty
+window-decoration = false
+
+
+# ----------------------------
+# Cursor
+# ----------------------------
+cursor-style = bar
+
+
+# ----------------------------
+# Scroll
+# ----------------------------
+#mouse-scroll-multiplier = 25
+
+
+# ----------------------------
+# Audio
+# ----------------------------
+# bell disable (equivale a enable_audio_bell false)
+bell-features = no-system
+
+
+# ----------------------------
+# Opacidad
+# ----------------------------
+# kitty tenía 0.8 con dynamic_background_opacity.
+# dynamic_background_opacity no existe en Ghostty;
+# para cambiarla en caliente, usa una windowrule en Hyprland:
+#   windowrule = opacity 0.8 0.8, class:com.mitchellh.ghostty
+background-opacity = 0.8
+
+
+# ----------------------------
+# Tabs
+# ----------------------------
+# kitty: powerline slanted. Ghostty no tiene powerline nativo,
+# pero sí tiene barra de tabs con colores personalizados.
+gtk-tabs-location = bottom
+
+
+# ----------------------------
+# Shell / Editor
+# ----------------------------
+# editor = nvim en kitty no tiene equivalente en Ghostty.
+# Ghostty respeta $EDITOR del entorno. Asegúrate de tener:
+#   export EDITOR=nvim
+# en tu .zshrc / .bashrc.
+#
+# Integración con shell (autodetecta zsh/bash/fish):
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+
+# ----------------------------
+# Colores — Dracula modificado
+# (background cambiado a #24292E, resto Dracula)
+# ----------------------------
+foreground = #f8f8f2
+background = #24292E
+
+selection-foreground = #ffffff
+selection-background = #44475a
+
+cursor-color = #f8f8f2
+cursor-text   = #24292E
+
+# Ghostty no tiene link-color como campo separado.
+# Los links se colorean con el color cyan de la paleta (palette = 6).
+# Si quieres cambiar el color de los URLs, ajusta palette = 6 arriba.
+
+# Paleta ANSI completa (Dracula)
+# black
+palette = 0=#21222c
+palette = 8=#6272a4
+# red
+palette = 1=#ff5555
+palette = 9=#ff6e6e
+# green
+palette = 2=#50fa7b
+palette = 10=#69ff94
+# yellow
+palette = 3=#f1fa8c
+palette = 11=#ffffa5
+# blue (Dracula usa purple aquí)
+palette = 4=#bd93f9
+palette = 12=#d6acff
+# magenta
+palette = 5=#ff79c6
+palette = 13=#ff92df
+# cyan
+palette = 6=#8be9fd
+palette = 14=#a4ffff
+# white
+palette = 7=#f8f8f2
+palette = 15=#ffffff
+
+
+# ----------------------------
+# GTK / Rendimiento
+# ----------------------------
+# Una sola instancia GTK — más liviano, abre ventanas nuevas más rápido
+gtk-single-instance = true
