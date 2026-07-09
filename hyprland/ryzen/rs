@@ -1,0 +1,25 @@
+#!/bin/bash
+
+PROFILE=$1
+
+if [[ -z "$PROFILE" ]]; then
+    echo "Uso: $0 {gaming|balanced|power-save}"
+    exit 1
+fi
+
+# Verifica si el perfil existe
+if [[ ! -f /usr/local/bin/ryzenadj-$PROFILE.sh ]]; then
+    echo "❌ El perfil '$PROFILE' no existe en /usr/local/bin/"
+    exit 1
+fi
+
+echo "⚡ Cambiando a perfil: $PROFILE ..."
+sudo systemctl start ryzenadj@$PROFILE.service
+
+# ================= AJUSTES PARA TU ENTORNO GRÁFICO =================
+# 1. Guardar el perfil actual en un archivo de texto plano
+echo "$PROFILE" > /tmp/current_ryzen_profile
+
+# 2. Forzar a Waybar a actualizar su módulo personalizado de inmediato
+#pkill -RTMIN+1 waybar
+# ===================================================================

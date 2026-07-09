@@ -1,0 +1,10 @@
+[Unit]
+Description=RyzenAdj profile %i
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ryzenadj-%i.sh
+
+[Install]
+WantedBy=multi-user.target

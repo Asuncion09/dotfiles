@@ -1,0 +1,98 @@
+{
+  "layer": "top",
+  "position": "left",
+  "margin-top": 6,
+  "margin-bottom": 6,
+  "margin-left": 6,
+  "height": 600,
+  "modules-left": [
+      "custom/launcher",
+      "hyprland/workspaces"
+  ],
+  "modules-center": [
+      "group/reloj"
+  ],
+  "modules-right": [
+      "tray",
+      "custom/notify",
+      "bluetooth",
+      "network",
+      "battery"
+  ],
+  "hyprland/window": {
+      "max-length": 50
+  },
+  "battery": {
+      "interval": 60,
+      "format": "{icon}",
+      "tooltip-format": "{capacity}%",
+      "format-icons": {
+          "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+          "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+      }
+  },
+  "bluetooth": {
+      "format": "󰂯",
+      "format-off": "󰂲",
+      "format-disabled": "󰂲", 
+      "format-connected": "",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "on-click": "ghostty --class=com.floating.medium -e bluetui"
+  },
+  "network": {
+      "format": "",
+      "format-wifi": "󰖩",
+      "format-ethernet": "",
+      "format-disconnected": "󰖪",
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-disconnected": "󰤭",
+      "max-length": 50,
+      "on-click": "nmrs-gui"
+  },
+  "group/reloj": {
+    "orientation": "vertical",
+    "modules": [
+      "clock#1",
+      "clock#2",
+      "clock#3"
+    ]
+  },
+  "clock#1": {
+      //"format": " { %b %I:%M %p}",
+      "format": "{:%I}",
+      "tooltip": false
+  },
+  "clock#2": {
+      "format": "{:%M}",
+      "tooltip": false
+  },
+  "clock#3": {
+      "format": "{:%p}",
+      "tooltip": false
+  },
+  "tray": {
+      "icon-size": 16,
+      "spacing": 10
+  },
+  "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+          "active": "",
+          "default": ""
+      }
+  },
+  "custom/launcher": {
+      "format": "", 
+      "on-click": "~/.config/rofi/launcher.sh",
+      "tooltip": false
+  },
+  "custom/notify": {
+    "format": "",
+    "on-click": "swaync-client -t -sw",
+    "tooltip": false
+  }
+}

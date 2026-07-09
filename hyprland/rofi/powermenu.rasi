@@ -1,0 +1,92 @@
+@import "~/.config/rofi/colors/oxicarbon.rasi"
+
+configuration {
+    show-icons:                 false;
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+
+    return-exit:                true;
+    click-to-exit:              true;
+}
+
+* {
+    bg-window:      @background;
+    bg-element:     transparent;
+
+    bg-selected:    @backgroud-alt;
+
+    fg-normal:      @foreground;
+    fg-selected:    @foreground;
+
+    border-subtle:  @background-alt;
+}
+
+window {
+    background-color:   @bg-window;
+    text-color:         @fg-normal;
+
+    border:             1px;
+    border-color:       @border-subtle;
+
+    border-radius:      8px;
+
+    width:              210px;
+
+    location:           north;
+    anchor:             north;
+
+    x-offset:           0px;
+    y-offset:           20px;
+}
+
+mainbox {
+    background-color:   transparent;
+    children:           [ listview ];
+    padding:            8px;
+}
+
+listview {
+    background-color:   transparent;
+
+    columns:            3;
+    lines:              1;
+
+    spacing:            6px;
+
+    cycle:              true;
+    dynamic:            true;
+
+    layout:             vertical;
+}
+
+element {
+    background-color:   @bg-element;
+    text-color:         @fg-normal;
+
+    orientation:        horizontal;
+
+    border-radius:      5px;
+
+    padding:            10px 0px;
+
+    cursor:             pointer;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+
+    font: "JetBrainsMono Nerd Font 20";
+
+    horizontal-align:   0.5;
+    vertical-align:     0.5;
+}
+
+element selected {
+    background-color:   @bg-selected;
+    text-color:         @fg-selected;
+
+    border:             1px;
+    border-color:       @selected;
+}

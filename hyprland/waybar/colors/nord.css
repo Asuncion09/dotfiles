@@ -1,0 +1,19 @@
+@define-color highlight rgba(136, 192, 208, 1);
+
+/* Nord polar night (backgrounds) */
+@define-color dark-9 rgba(46, 52, 64, 1);
+@define-color dark-8 rgba(59, 66, 82, 1);
+@define-color dark-7 rgba(67, 76, 94, 1);
+@define-color dark-6 rgba(76, 86, 106, 1);
+@define-color dark-5 rgba(216, 222, 233, 0.08);
+
+/* Text colors */
+@define-color text rgba(236, 239, 244, 1);
+@define-color subtext rgba(216, 222, 233, 0.75);
+
+/* Accents (frost + aurora) */
+@define-color accent1 rgba(136, 192, 208, 1); /* frost */
+@define-color accent2 rgba(129, 161, 193, 1);
+@define-color accent3 rgba(94, 129, 172, 1);
+@define-color accent4 rgba(191, 97, 106, 1);  /* aurora red */
+@define-color accent5 rgba(163, 190, 140, 1); /* aurora green */

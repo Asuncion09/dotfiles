@@ -1,0 +1,11 @@
+/**
+ * Colors — Oxocarbon (IBM Carbon)
+ */
+* {
+    background:     #161616FF;
+    background-alt: #262626FF;
+    foreground:     #DDE1E7FF;
+    selected:       #78A9FFFF;
+    active:         #42BE65FF;
+    urgent:         #EE5396FF;
+}

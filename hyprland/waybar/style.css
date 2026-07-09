@@ -1,0 +1,110 @@
+@define-color highlight rgba(120, 169, 255, 1);
+@define-color dark-9 rgba(22, 22, 22, 1);
+@define-color dark-8 rgba(38, 38, 38, 1);
+@define-color dark-7 rgba(57, 57, 57, 1);
+@define-color dark-6 rgba(82, 82, 82, 0.5);
+@define-color dark-5 rgba(82, 82, 82, 0.12);
+
+* {
+  all: unset;
+  font-family: 'JetBrainsMono Nerd Font Propo';
+  font-size: 13px;
+}
+
+tooltip {
+  background: @dark-8;
+  border: 1px solid @dark-7;
+  border-radius: 5px;
+}
+
+tooltip label {
+  color: #dde1e7;
+}
+
+menu {
+  background-color: @dark-8;
+  color: #dde1e7;
+  border: 1px solid @dark-7;
+  border-radius: 4px;
+}
+
+menuitem {
+  color: #dde1e7;
+  padding: 4px;
+}
+
+menuitem:hover {
+  background: @dark-7;
+  border-radius: 4px;
+}
+
+window#waybar {
+  background-color: @dark-9;
+  border: 1px solid @dark-7;
+  border-radius: 8px;
+}
+
+#workspaces {
+  margin: 0px 10px;
+}
+
+#workspaces button {
+  background: @dark-6;
+  color: #dde1e7;
+  margin-top: 3px;
+  border-radius: 7px;
+  transition: background 200ms ease, padding-top 200ms ease;
+}
+
+#workspaces button.persistent {
+  background-color: #42be65;
+}
+
+#workspaces button.empty {
+  background-color: @dark-6;
+}
+
+#workspaces button.active {
+  background: @highlight;
+  padding-top: 10px;
+}
+
+#workspaces button.urgent {
+  background: #ee5396;
+}
+
+#battery,
+#bluetooth,
+#custom-notify,
+#network {
+  border-radius: 4px;
+  padding: 5px 5px 5px 6px;
+  background: @dark-6;
+  margin: 3px 7px;
+  min-width: 15px;
+}
+
+#battery {
+  margin-bottom: 8px;
+}
+
+#clock {
+  font-weight: 800;
+  color: @highlight;
+}
+
+#custom-launcher {
+  border-radius: 4px;
+  padding: 3px 4px 3px 6px;
+  background: @dark-6;
+  margin: 10px 7px 3px;
+  min-width: 16px;
+  font-size: 15px;
+}
+
+#tray {
+  border-radius: 4px;
+  padding: 5px 5px 5px 7px;
+  background: @dark-6;
+  margin: 3px 7px;
+}
