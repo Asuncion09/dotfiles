@@ -18,18 +18,21 @@ hl.config({
             natural_scroll = true,
         },
     },
+
+    cursor = {
+        no_warps = true,
+        warp_on_change_workspace = 0,
+    },
 })
 
 hl.gesture({
     fingers = 3,
-    direction = "vertical",
+    direction = "horizontal",
     action = "workspace"
 })
 hl.gesture({ fingers = 2, direction = "pinchin", action = "cursorZoom", zoom_level = 2.0, mode = "mult" })
 hl.gesture({ fingers = 2, direction = "pinchout", action = "cursorZoom", zoom_level = 0.5, mode = "mult" })
 
--- Desplazamiento horizontal continuo en el layout de cinta (usando 2 dedos)
-hl.gesture({ fingers = 3, direction = "horizontal", action = "scroll_move" })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more

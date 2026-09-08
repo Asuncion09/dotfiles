@@ -17,6 +17,14 @@ hl.monitor({
   scale = 1,
 })
 
+-- Fallback para monitores adicionales / externos
+hl.monitor({
+  output = "",
+  mode = "preferred",
+  position = "auto",
+  scale = 1,
+})
+
 hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true})
 hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true})
 hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true})

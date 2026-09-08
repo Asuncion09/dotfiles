@@ -29,10 +29,10 @@ hl.window_rule({
     class = "com.floating.medium"
   },
   float = true,
-  size = { 600, 600 },
+  size = { 550, 550 },
   opacity = 0.95,
-  animation = "slide left",
-  move = {70, 240}
+  animation = "slide top",
+  move = {1360, 50}
 })
 
 hl.window_rule({
@@ -53,13 +53,6 @@ hl.layer_rule({
   dim_around = false
 })
 
-hl.layer_rule({
-    match = {
-        namespace = "waybar"
-    },
-    blur = true,
-    ignore_alpha = 0,
-})
 
 hl.layer_rule({
   name = "notification-animations",
@@ -68,7 +61,8 @@ hl.layer_rule({
 })
 
 hl.window_rule({
-  match = { class = "Spotify"},
+  match = { class = "spotify"},
+  size = { 800,600 },
   float = true
 })
 
@@ -82,9 +76,37 @@ hl.window_rule({
 
 hl.window_rule({
   match = {
+    class = "net.davidotek.pupgui2",
+  },
+  float = true
+})
+
+hl.window_rule({
+  match = {
     class = "org.nmrs.ui"
   },
   float = true,
-  animation = "slide left",
-  move = {100, 240},
+  animation = "slide top",
+  move = {1430, 50}
 })
+
+-- Reglas para Steam: evitar que submenús hover, tooltips y notificaciones roben foco
+hl.window_rule({
+  name = "steam-tooltips-nofocus",
+  match = {
+    class = "steam",
+    title = "^$",
+  },
+  no_focus = true,
+})
+
+hl.window_rule({
+  name = "steam-notifications-nofocus",
+  match = {
+    class = "steam",
+    title = "^notificationtoasts.*",
+  },
+  float = true,
+  no_focus = true,
+})
+

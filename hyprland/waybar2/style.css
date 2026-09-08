@@ -1,0 +1,206 @@
+@define-color highlight rgba(120, 169, 255, 1);
+@define-color dark-9 rgba(22, 22, 22, 1);
+@define-color dark-8 rgba(38, 38, 38, 1);
+@define-color dark-7 rgba(57, 57, 57, 1);
+@define-color dark-6 rgba(82, 82, 82, 0.5);
+@define-color dark-5 rgba(82, 82, 82, 0.12);
+
+* {
+  all: unset;
+  font-family: 'JetBrainsMono Nerd Font Propo';
+  font-size: 13px;
+  color: #dde1e7;
+}
+
+tooltip {
+  background: @dark-9;
+  border: 1px solid @dark-7;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+tooltip label {
+  color: #dde1e7;
+}
+
+menu {
+  background-color: @dark-9;
+  border: 1px solid @dark-7;
+  border-radius: 8px;
+  padding: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+menuitem {
+  color: #dde1e7;
+  font-size: 12px;
+  padding: 3px 8px;
+  margin: 1px 0;
+  border-radius: 4px;
+  transition: all 120ms ease;
+}
+
+menuitem:hover {
+  background: rgba(120, 169, 255, 0.15);
+  color: @highlight;
+}
+
+menuitem:disabled {
+  color: rgba(221, 225, 231, 0.35);
+}
+
+separator {
+  background-color: @dark-7;
+  min-height: 1px;
+  margin: 2px 4px;
+}
+
+window#waybar {
+  background-color: transparent;
+  border: none;
+}
+
+.modules-left,
+.modules-center,
+#apps,
+#hardware {
+  background-color: @dark-9;
+  border: 1px solid @dark-7;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+.modules-center {
+  padding: 2px 14px;
+}
+
+.modules-right {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+#apps {
+  margin-right: 8px;
+}
+
+#workspaces {
+  margin: 0px 4px;
+}
+
+#workspaces button {
+  background: @dark-6;
+  color: transparent;
+  font-size: 0px;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  margin: 8px 3px;
+  min-width: 18px;
+  min-height: 10px;
+  border-radius: 5px;
+  transition: all 250ms ease;
+}
+
+#workspaces button label {
+  font-size: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+#workspaces button.persistent {
+  background-color: #42be65;
+}
+
+#workspaces button.empty {
+  background-color: @dark-6;
+}
+
+#workspaces button.active {
+  background: @highlight;
+  min-width: 36px;
+  border-radius: 5px;
+}
+
+#workspaces button.urgent {
+  background: #ee5396;
+}
+
+#clock {
+  font-weight: 800;
+  color: @highlight;
+  padding: 2px 4px;
+  margin: 0;
+}
+
+#custom-launcher {
+  border-radius: 6px;
+  padding: 0 6px;
+  background: transparent;
+  margin: 0 4px 0 2px;
+  font-size: 15px;
+  transition: all 180ms ease;
+}
+
+#custom-launcher:hover {
+  color: @highlight;
+  background: rgba(120, 169, 255, 0.12);
+}
+
+#tray,
+#custom-notify,
+#bluetooth,
+#network,
+#battery {
+  background: transparent;
+  padding: 2px 6px;
+  margin: 2px 1px;
+  border-radius: 6px;
+  transition: all 180ms ease;
+}
+
+#tray:hover,
+#custom-notify:hover,
+#bluetooth:hover,
+#network:hover {
+  background: rgba(120, 169, 255, 0.12);
+  color: @highlight;
+}
+
+
+/* Estados funcionales y alertas */
+#battery.charging {
+  color: #42be65;
+}
+
+#battery.warning:not(.charging) {
+  color: #f1c40f;
+}
+
+#battery.critical:not(.charging) {
+  color: #ee5396;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: rgba(221, 225, 231, 0.2);
+  }
+}
+
+#network.disconnected {
+  color: #ee5396;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+  color: rgba(221, 225, 231, 0.4);
+}
+
+#bluetooth.connected {
+  color: @highlight;
+}

@@ -1,0 +1,14 @@
+@define-color highlight rgba(189, 147, 249, 1);
+
+/* Base */
+@define-color dark-9 rgba(40, 42, 54, 1);
+@define-color dark-8 rgba(68, 71, 90, 1);
+@define-color dark-7 rgba(98, 114, 164, 1);
+@define-color dark-6 rgba(98, 114, 164, 1);
+@define-color dark-5 rgba(68, 71, 90, 1);
+
+/* Extras */
+@define-color text rgba(248, 248, 242, 1);
+@define-color subtext rgba(248, 248, 242, 0.7);
+@define-color surface rgba(68, 71, 90, 1);
+@define-color accent rgba(80, 250, 123, 1);
