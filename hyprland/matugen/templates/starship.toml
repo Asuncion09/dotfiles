@@ -1,0 +1,112 @@
+# Starship Prompt — Tema Material You dinámico generado por Matugen
+# Paleta pastel armónica y suave integrada con el fondo de pantalla
+add_newline = false
+palette = "matugen"
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$package\
+$c\
+$rust\
+$golang\
+$nodejs\
+$python\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[palettes.matugen]
+primary = "{{colors.primary.default.hex}}"
+on_primary = "{{colors.on_primary.default.hex}}"
+primary_container = "{{colors.primary_container.default.hex}}"
+on_primary_container = "{{colors.on_primary_container.default.hex}}"
+secondary = "{{colors.secondary.default.hex}}"
+on_secondary = "{{colors.on_secondary.default.hex}}"
+secondary_container = "{{colors.secondary_container.default.hex}}"
+tertiary = "{{colors.tertiary.default.hex}}"
+on_tertiary = "{{colors.on_tertiary.default.hex}}"
+surface = "{{colors.surface.default.hex}}"
+surface_container = "{{colors.surface_container.default.hex}}"
+surface_container_high = "{{colors.surface_container_high.default.hex}}"
+on_surface = "{{colors.on_surface.default.hex}}"
+on_surface_variant = "{{colors.on_surface_variant.default.hex}}"
+outline = "{{colors.outline.default.hex}}"
+error = "{{colors.error.default.hex}}"
+# Tonos pastel armonizados (blend):
+red = "{{colors.red.default.hex}}"
+green = "{{colors.green.default.hex}}"
+yellow = "{{colors.yellow.default.hex}}"
+blue = "{{colors.blue.default.hex}}"
+magenta = "{{colors.magenta.default.hex}}"
+cyan = "{{colors.cyan.default.hex}}"
+
+[character]
+success_symbol = "[❯](bold fg:primary)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:tertiary)"
+
+[directory]
+style = "bold fg:primary"
+truncation_length = 4
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "fg:red"
+
+[git_branch]
+style = "bold fg:tertiary"
+symbol = " "
+
+[git_status]
+style = "fg:yellow"
+conflicted = "[󰞇 ](fg:red)"
+ahead = "[⇡${count} ](fg:cyan)"
+behind = "[⇣${count} ](fg:red)"
+diverged = "[⇕⇡${ahead_count}⇣${behind_count} ](fg:yellow)"
+untracked = "[󰋗 ](fg:cyan)"
+stashed = "[󰛢 ](fg:blue)"
+modified = "[󰛿 ](fg:yellow)"
+staged = "[󰝒 ](bold fg:green)"
+renamed = "[󰑕 ](fg:blue)"
+deleted = "[󰅖 ](fg:red)"
+
+[cmd_duration]
+min_time = 2_000
+style = "fg:outline"
+format = "took [$duration]($style) "
+
+[status]
+disabled = false
+symbol = "✘"
+style = "bold fg:red"
+format = "[$symbol $status]($style) "
+
+[package]
+style = "fg:secondary"
+symbol = "󰏗 "
+
+[nodejs]
+style = "bold fg:green"
+symbol = "󰎙 "
+
+[python]
+style = "bold fg:yellow"
+symbol = "󰌠 "
+
+[rust]
+style = "bold fg:red"
+symbol = "󱘗 "
+
+[golang]
+style = "bold fg:cyan"
+symbol = "󰟓 "
+
+[c]
+style = "bold fg:blue"
+symbol = "󰙲 "
+
+[docker_context]
+style = "bold fg:blue"
+symbol = "󰡨 "

@@ -1,0 +1,48 @@
+# ============================================================
+#  Ghostty theme — Material You dinámico + ANSI Pastel Armonizado
+#  Fondo, texto y cursor sincronizados con el wallpaper actual
+#  Paleta ANSI suave, desaturada y matemáticamente armonizada (blend)
+# ============================================================
+
+background = {{colors.surface.default.hex}}
+foreground = {{colors.on_surface.default.hex}}
+selection-background = {{colors.surface_container_highest.default.hex}}
+selection-foreground = {{colors.on_surface.default.hex}}
+cursor-color = {{colors.primary.default.hex}}
+cursor-text = {{colors.on_primary.default.hex}}
+
+# Paleta ANSI estándar (0-7) — Tonos pastel armónicos con el fondo
+# black
+palette = 0={{colors.surface_container_lowest.default.hex}}
+# red (coral/terracota pastel)
+palette = 1={{colors.red.default.hex}}
+# green (salvia/oliva pastel para htop, git)
+palette = 2={{colors.green.default.hex}}
+# yellow (miel/crema pastel para advertencias)
+palette = 3={{colors.yellow.default.hex}}
+# blue (agua/menta pastel para directorios)
+palette = 4={{colors.blue.default.hex}}
+# magenta (rosa palo pastel)
+palette = 5={{colors.magenta.default.hex}}
+# cyan (té verde/menta suave para enlaces e hilos)
+palette = 6={{colors.cyan.default.hex}}
+# white (crema suave para texto brillante)
+palette = 7={{colors.on_surface.default.hex}}
+
+# Paleta ANSI brillante (8-15) — Versiones claras y luminosas
+# bright black
+palette = 8={{colors.outline.default.hex}}
+# bright red
+palette = 9={{colors.red.default.hex | lighten: 5.0}}
+# bright green
+palette = 10={{colors.green.default.hex | lighten: 5.0}}
+# bright yellow
+palette = 11={{colors.yellow.default.hex | lighten: 5.0}}
+# bright blue
+palette = 12={{colors.blue.default.hex | lighten: 5.0}}
+# bright magenta
+palette = 13={{colors.magenta.default.hex | lighten: 5.0}}
+# bright cyan
+palette = 14={{colors.cyan.default.hex | lighten: 5.0}}
+# bright white
+palette = 15={{colors.on_surface_variant.default.hex}}

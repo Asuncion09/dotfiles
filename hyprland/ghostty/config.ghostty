@@ -86,40 +86,33 @@ shell-integration = detect
 shell-integration-features = cursor,sudo,title
 
 # ----------------------------
-# Colores — Oxocarbon (IBM Carbon)
+# Tema dinámico Matugen (Material You)
 # ----------------------------
-foreground          = #dde1e7
-background          = #161616
-selection-foreground = #dde1e7
-selection-background = #393939
-cursor-color        = #78a9ff
-cursor-text         = #161616
+theme = matugen
 
-# Paleta ANSI completa (Oxocarbon)
-# black
-palette = 0=#262626
-palette = 8=#525252
-# red
-palette = 1=#ee5396
-palette = 9=#ff7eb6
-# green
-palette = 2=#42be65
-palette = 10=#6fdc8c
-# yellow
-palette = 3=#ffe97b
-palette = 11=#ffd877
-# blue
-palette = 4=#78a9ff
-palette = 12=#a6c8ff
-# magenta
-palette = 5=#be95ff
-palette = 13=#d4bbff
-# cyan
-palette = 6=#33b1ff
-palette = 14=#82cfff
-# white
-palette = 7=#dde1e7
-palette = 15=#ffffff
+# Paleta fija de respaldo (Oxocarbon - descomentar si deseas volver a fijarlo):
+# foreground          = #dde1e7
+# background          = #161616
+# selection-foreground = #dde1e7
+# selection-background = #393939
+# cursor-color        = #78a9ff
+# cursor-text         = #161616
+# palette = 0=#262626
+# palette = 8=#525252
+# palette = 1=#ee5396
+# palette = 9=#ff7eb6
+# palette = 2=#42be65
+# palette = 10=#6fdc8c
+# palette = 3=#ffe97b
+# palette = 11=#ffd877
+# palette = 4=#78a9ff
+# palette = 12=#a6c8ff
+# palette = 5=#be95ff
+# palette = 13=#d4bbff
+# palette = 6=#33b1ff
+# palette = 14=#82cfff
+# palette = 7=#dde1e7
+# palette = 15=#ffffff
 
 # ----------------------------
 # GTK / Rendimiento

@@ -145,3 +145,6 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   ssh-add ~/.ssh/id_ed25519 2>/dev/null
 fi
 export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/home/daniel/.opencode/bin:$PATH

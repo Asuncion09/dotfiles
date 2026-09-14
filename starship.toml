@@ -1,292 +1,112 @@
+# Starship Prompt — Tema Material You dinámico generado por Matugen
+# Paleta pastel armónica y suave integrada con el fondo de pantalla
 add_newline = false
-scan_timeout = 10
-command_timeout = 300
+palette = "matugen"
 
 format = """
-$username\
-$hostname\
-$localip\
-$singularity\
-$kubernetes\
-[](bg:#282a36 fg:#bd93f9 )\
-$os\
-[](bg:#2e3440 fg:#bd93f9 )\
 $directory\
-"""
-right_format = """
-$php\
-$vcsh\
-$hg_branch\
-$docker_context\
+$git_branch\
+$git_status\
 $package\
 $c\
-$cmake\
-$cobol\
-$daml\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$guix_shell\
-$haskell\
-$haxe\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$opa\
-$perl\
-$pulumi\
-$purescript\
-$python\
-$raku\
-$rlang\
-$red\
-$ruby\
 $rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$buf\
-$nix_shell\
-$conda\
-$meson\
-$spack\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$azure\
-$env_var\
-$crystal\
-$custom\
-$sudo\
-$jobs\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
-$battery\
-$status\
-$container\
-$shell\
-"""
+$golang\
+$nodejs\
+$python\
+$docker_context\
+$cmd_duration\
+$line_break\
+$character"""
+
+[palettes.matugen]
+primary = "#dbc3a4"
+on_primary = "#3d2e18"
+primary_container = "#a38d71"
+on_primary_container = "#000000"
+secondary = "#d2c4b5"
+on_secondary = "#372f25"
+secondary_container = "#51483c"
+tertiary = "#bdc7d9"
+on_tertiary = "#27313f"
+surface = "#151311"
+surface_container = "#211f1d"
+surface_container_high = "#2c2a27"
+on_surface = "#e7e1dd"
+on_surface_variant = "#d0c5b9"
+outline = "#998f85"
+error = "#ffb4ab"
+# Tonos pastel armonizados (blend):
+red = "#ffb59b"
+green = "#d8cd71"
+yellow = "#f6c16f"
+blue = "#a3d0b9"
+magenta = "#ffb3b3"
+cyan = "#b6cf8e"
 
 [character]
-#error_symbol = "[❯](bold red)"
-#success_symbol = "[❯](bold green)"
-
-
-[aws]
-symbol = "  "
-style = "bg: fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[buf]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[c]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[conda]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[dart]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+success_symbol = "[❯](bold fg:primary)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:tertiary)"
 
 [directory]
-#read_only = " "
-style = "bg:#2e3440 fg:#8BE9FD"
-format = "[ $path ]($style)[ ](fg:#2e3440)"
-truncation_length = 3
-truncation_symbol = "../"
-
-
-[docker_context]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[$symbol$context]($style)"
-
-
-[elixir]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[elm]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+style = "bold fg:primary"
+truncation_length = 4
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "fg:red"
 
 [git_branch]
+style = "bold fg:tertiary"
 symbol = " "
-style = "bg:#f1fa8c fg:#282a36"
-format = "[](bg:#282a36 fg:#f1fa8c)[ $symbol $branch(:$remote_branch) ]($style)"
 
 [git_status]
-style = "bg:#f1fa8c fg:#282a36"
-format = '[ $all_status$ahead_behind ]($style)[](bg:#f1fa8c fg:#282a36)'
+style = "fg:yellow"
+conflicted = "[󰞇 ](fg:red)"
+ahead = "[⇡${count} ](fg:cyan)"
+behind = "[⇣${count} ](fg:red)"
+diverged = "[⇕⇡${ahead_count}⇣${behind_count} ](fg:yellow)"
+untracked = "[󰋗 ](fg:cyan)"
+stashed = "[󰛢 ](fg:blue)"
+modified = "[󰛿 ](fg:yellow)"
+staged = "[󰝒 ](bold fg:green)"
+renamed = "[󰑕 ](fg:blue)"
+deleted = "[󰅖 ](fg:red)"
 
+[cmd_duration]
+min_time = 2_000
+style = "fg:outline"
+format = "took [$duration]($style) "
 
-[golang]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[guix_shell]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[haskell]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[haxe]
-symbol = "⌘ "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[java]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[julia]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[lua]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[memory_usage]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[meson]
-symbol = "喝 "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[nim]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[nix_shell]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[nodejs]
-symbol = "󰎙 "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "﯑ "
-Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
-Linux = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = " "
-openSUSE = " "
-OracleLinux = " "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = " "
-Solus = "ﴱ "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = " "
-
+[status]
+disabled = false
+symbol = "✘"
+style = "bold fg:red"
+format = "[$symbol $status]($style) "
 
 [package]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+style = "fg:secondary"
+symbol = "󰏗 "
+
+[nodejs]
+style = "bold fg:green"
+symbol = "󰎙 "
 
 [python]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ($virtualenv) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[rlang]
-symbol = "ﳒ "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[ruby]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+style = "bold fg:yellow"
+symbol = "󰌠 "
 
 [rust]
+style = "bold fg:red"
 symbol = "󱘗 "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
 
-[scala]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+[golang]
+style = "bold fg:cyan"
+symbol = "󰟓 "
 
-[spack]
-symbol = "🅢 "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
+[c]
+style = "bold fg:blue"
+symbol = "󰙲 "
 
-[php]
-symbol = " "
-style = "bg:#bd93f9 fg:#282a36"
-format = "[](bg:#282a36 fg:#bd93f9)[ $symbol($version) ]($style)[](bg:#bd93f9 fg:#282a36)"
-
-[os]
-format = '[$symbol]($style)'
-style = "fg:#44475a bg:#bd93f9"
-disabled = false
+[docker_context]
+style = "bold fg:blue"
+symbol = "󰡨 "

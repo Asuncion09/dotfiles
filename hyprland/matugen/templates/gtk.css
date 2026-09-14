@@ -1,0 +1,64 @@
+/* ============================================================
+   GTK 3 & 4 / Libadwaita — Tema dinámico generado por Matugen
+   ============================================================ */
+
+/* Tokens @define-color para GTK 3 y adw-gtk3 */
+@define-color accent_color {{colors.primary.default.hex}};
+@define-color accent_bg_color {{colors.primary.default.hex}};
+@define-color accent_fg_color {{colors.on_primary.default.hex}};
+@define-color theme_selected_bg_color {{colors.primary.default.hex}};
+@define-color theme_selected_fg_color {{colors.on_primary.default.hex}};
+
+@define-color destructive_color {{colors.red.default.hex}};
+@define-color destructive_bg_color {{colors.red.default.hex}};
+@define-color destructive_fg_color {{colors.on_error.default.hex}};
+
+@define-color success_color {{colors.green.default.hex}};
+@define-color success_bg_color {{colors.green.default.hex}};
+@define-color warning_color {{colors.yellow.default.hex}};
+@define-color warning_bg_color {{colors.yellow.default.hex}};
+
+/* CSS Custom Properties para Libadwaita (GTK 4 moderno) */
+:root {
+  --accent-color: {{colors.primary.default.hex}};
+  --accent-bg-color: {{colors.primary.default.hex}};
+  --accent-fg-color: {{colors.on_primary.default.hex}};
+  --destructive-color: {{colors.red.default.hex}};
+  --destructive-bg-color: {{colors.red.default.hex}};
+  --destructive-fg-color: {{colors.on_error.default.hex}};
+  --success-color: {{colors.green.default.hex}};
+  --success-bg-color: {{colors.green.default.hex}};
+  --warning-color: {{colors.yellow.default.hex}};
+  --warning-bg-color: {{colors.yellow.default.hex}};
+}
+
+/* Reglas de selección, cajas elásticas (rubberband), botones y switches */
+.view:selected,
+.view text:selected,
+gridview > child:selected,
+listview > row:selected,
+list > row:selected,
+columnview row:selected,
+.rubberband,
+rubberband {
+  background-color: color-mix(in srgb, {{colors.primary.default.hex}} 30%, transparent);
+  border-color: {{colors.primary.default.hex}};
+}
+
+button.suggested-action {
+  background-color: {{colors.primary.default.hex}};
+  color: {{colors.on_primary.default.hex}};
+}
+
+switch:checked {
+  background-color: {{colors.primary.default.hex}};
+  color: {{colors.on_primary.default.hex}};
+}
+
+scale highlight {
+  background-color: {{colors.primary.default.hex}};
+}
+
+progressbar progress {
+  background-color: {{colors.primary.default.hex}};
+}
