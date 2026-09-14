@@ -8,8 +8,8 @@
 -- Or execute your favorite apps at launch like this:
 
 hl.on("hyprland.start", function () 
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+--   hl.exec_cmd("systemctl --user start hyprpolkitagent")  -- Reemplazado por Quickshell PolkitAgent nativo
   hl.exec_cmd("quickshell")
-  hl.exec_cmd("hyprpaper")
+  -- hl.exec_cmd("hyprpaper") -- reemplazado por Quickshell
   hl.exec_cmd("hypridle")
 end)

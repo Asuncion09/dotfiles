@@ -19,7 +19,7 @@ hl.config({
         resize_on_border = false,
 
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-        allow_tearing    = false,
+        allow_tearing    = true,
 
     },
 
@@ -33,8 +33,8 @@ hl.config({
 
         shadow           = {
             enabled      = true,
-            range        = 20,
-            render_power = 4,
+            range        = 10,
+            render_power = 2,
             color        = 0x66000000,
         },
 

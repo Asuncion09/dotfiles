@@ -83,6 +83,22 @@ hl.window_rule({
 
 hl.window_rule({
   match = {
+    class = "org.gnome.Nautilus",
+  },
+  float = true
+})
+
+hl.window_rule({
+  match = {
+    class = "xdg-desktop-portal-gtk",
+  },
+  size = { 880, 600 },
+  float = true
+
+})
+
+hl.window_rule({
+  match = {
     class = "org.nmrs.ui"
   },
   float = true,
@@ -110,3 +126,13 @@ hl.window_rule({
   no_focus = true,
 })
 
+
+-- Reglas para Risk of Rain 2 (XSplitScreen multi-monitor)
+hl.window_rule({
+  name = "ror2-multi-monitor",
+  match = {
+    class = "^(steam_app_632360|Risk of Rain 2.*)$",
+  },
+  render_unfocused = true,
+  immediate = true,
+})
