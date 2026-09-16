@@ -1,0 +1,45 @@
+------------------
+---- MONITORS ----
+------------------
+
+-- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+hl.monitor({
+  output = "eDP-1",
+  mode = "1920x1080@60",
+  position = "0x0",
+  scale = 1,
+})
+
+hl.monitor({
+  output = "HDMI-A-1",
+  mode = "1920x1080@100",
+  position = "1920x0",
+  scale = 1,
+})
+
+-- Fallback para monitores adicionales / externos
+hl.monitor({
+  output = "",
+  mode = "preferred",
+  position = "auto",
+  scale = 1,
+})
+
+-- Workspaces asignados por monitor (1 a 3 en eDP-1, 4 y 5 en HDMI-A-1)
+hl.workspace_rule({ workspace = "1", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "2", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "3", monitor = "eDP-1", persistent = true })
+hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-1", persistent = true, default = true })
+hl.workspace_rule({ workspace = "5", monitor = "HDMI-A-1", persistent = true })
+
+-- Al conectar monitor externo HDMI, transferir automáticamente los workspaces 4 y 5
+hl.on("monitor.added", function ()
+    hl.dispatch(hl.dsp.workspace.move({ workspace = 4, monitor = "HDMI-A-1" }))
+    hl.dispatch(hl.dsp.workspace.move({ workspace = 5, monitor = "HDMI-A-1" }))
+end)
+
+-- Al desconectar monitor externo, asegurar foco limpio en workspace 1
+hl.on("monitor.removed", function ()
+    hl.dispatch(hl.dsp.focus({ workspace = 1 }))
+end)
+
