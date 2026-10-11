@@ -1,0 +1,1 @@
+daniel ALL=(ALL) NOPASSWD: /usr/bin/systemctl enable --now ryzenadj@*.service, /usr/bin/systemctl disable ryzenadj@*.service, /usr/local/bin/ryzenadj -i, /usr/local/bin/ryzenadj *

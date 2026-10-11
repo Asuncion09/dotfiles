@@ -1,0 +1,10 @@
+[Unit]
+Description=Check RyzenAdj limits every 30 seconds
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=10s
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,146 @@
+#!/bin/bash
+# rs - Cambia el perfil de RyzenAdj. Sin argumentos: muestra el estado.
+
+PROFILES=(gaming balanced power-save)
+BIN=/usr/local/bin
+PROFILE="$1"
+
+# Colores solo si la salida es una terminal
+if [[ -t 1 ]]; then
+    B=$'\e[1m'; D=$'\e[2m'; G=$'\e[32m'; Y=$'\e[33m'; C=$'\e[36m'; RD=$'\e[31m'; R=$'\e[0m'
+else
+    B=""; D=""; G=""; Y=""; C=""; RD=""; R=""
+fi
+
+on_ac() {
+    local ps
+    for ps in /sys/class/power_supply/*; do
+        [[ "$(cat "$ps/type" 2>/dev/null)" == "Mains" && "$(cat "$ps/online" 2>/dev/null)" == "1" ]] && return 0
+    done
+    return 1
+}
+
+# Valor numérico de un flag dentro del script de un perfil
+script_val() { grep -oP -- "--$2=\K[0-9]+" "$BIN/ryzenadj-$1.sh" 2>/dev/null; }
+
+# Lee los límites actuales del SMU (en W y °C)
+read_limits() {
+    local out
+    out=$(sudo "$BIN/ryzenadj" -i 2>/dev/null) || return 1
+    get() { awk -F'|' -v k="$1" '$2 ~ k { gsub(/ /, "", $3); printf "%.0f", $3; exit }' <<< "$out"; }
+    STAPM=$(get "STAPM LIMIT")
+    FAST=$(get "PPT LIMIT FAST")
+    SLOW=$(get "PPT LIMIT SLOW")
+    TEMP=$(get "THM LIMIT CORE")
+}
+
+# Compara los valores actuales con los de cada script de perfil
+detect_profile() {
+    local p s sl f t
+    for p in "${PROFILES[@]}"; do
+        s=$(script_val "$p" stapm-limit)
+        sl=$(script_val "$p" slow-limit)
+        f=$(script_val "$p" fast-limit)
+        t=$(script_val "$p" tctl-temp)
+        if [[ $(( ${s:-0} / 1000 )) -eq $STAPM && $(( ${sl:-0} / 1000 )) -eq $SLOW \
+           && $(( ${f:-0} / 1000 )) -eq $FAST && ${t:-0} -eq $TEMP ]]; then
+            echo "$p"; return
+        fi
+    done
+    echo "personalizado"
+}
+
+color_for() {
+    case "$1" in
+        gaming) echo "$Y" ;;
+        balanced) echo "$G" ;;
+        power-save) echo "$C" ;;
+        *) echo "$RD" ;;
+    esac
+}
+
+# Barra de 10 bloques, escala 0-45 W
+bar() {
+    local w=$1 max=45 n i out=""
+    n=$(( (w * 10 + max / 2) / max ))
+    (( n > 10 )) && n=10
+    for (( i = 0; i < 10; i++ )); do
+        (( i < n )) && out+="█" || out+="░"
+    done
+    echo "$out"
+}
+
+# Fila alineada: cuenta caracteres, no bytes (tildes)
+row() {
+    local label="$1" value="$2"
+    printf "  %s%*s%s\n" "$label" $(( 14 - ${#label} )) "" "$value"
+}
+
+watt_row() {
+    row "$1" "$(color_for "$ACTIVE")$(bar "$2")${R} $(printf '%2s' "$2") W"
+}
+
+show_status() {
+    read_limits || { echo "❌ No pude leer los valores de ryzenadj"; exit 1; }
+
+    local resume="ninguno" p power SEP
+    ACTIVE=$(detect_profile)
+    for p in "${PROFILES[@]}"; do
+        systemctl is-enabled --quiet "ryzenadj@$p.service" 2>/dev/null && resume=$p
+    done
+    if on_ac; then power="${G}Corriente${R}"; else power="${Y}Batería${R}"; fi
+    SEP="  ${D}──────────────────────────────${R}"
+
+    echo
+    echo "  ${B}⚡ RyzenAdj${R}"
+    echo "$SEP"
+    row "Perfil"      "$(color_for "$ACTIVE")${B}${ACTIVE}${R}"
+    row "Tras resume" "$(color_for "$resume")${resume}${R}"
+    row "Energía"     "$power"
+    echo "$SEP"
+    watt_row "STAPM" "$STAPM"
+    watt_row "Slow"  "$SLOW"
+    watt_row "Fast"  "$FAST"
+    row "Temp límite" "${TEMP} °C"
+    echo
+    if [[ "$ACTIVE" == "personalizado" ]]; then
+        echo "  ${RD}⚠ Los límites no coinciden con ningún perfil.${R}"
+        echo "  ${D}Probablemente el firmware los reseteó. Usa: rs <perfil>${R}"
+        echo
+    fi
+}
+
+# Sin argumentos: mostrar estado
+if [[ -z "$PROFILE" ]]; then
+    show_status
+    exit 0
+fi
+
+if [[ ! " ${PROFILES[*]} " =~ " ${PROFILE} " ]]; then
+    echo "Uso: $0 [gaming|balanced|power-save]  (sin argumentos: muestra el estado)"
+    exit 1
+fi
+
+if [[ ! -x "$BIN/ryzenadj-$PROFILE.sh" ]]; then
+    echo "❌ No existe o no es ejecutable: $BIN/ryzenadj-$PROFILE.sh"
+    exit 1
+fi
+
+# Gaming solo con cargador conectado
+if [[ "$PROFILE" == "gaming" ]] && ! on_ac; then
+    echo "⚠️  Estás en batería y gaming pide hasta 45W."
+    read -rp "¿Continuar de todos modos? [y/N] " ans
+    [[ "$ans" =~ ^[yYsS]$ ]] || exit 1
+fi
+
+# Solo el perfil elegido queda habilitado para resume
+for p in "${PROFILES[@]}"; do
+    [[ "$p" != "$PROFILE" ]] && sudo systemctl disable "ryzenadj@$p.service" >/dev/null 2>&1
+done
+
+if sudo systemctl enable --now "ryzenadj@$PROFILE.service" >/dev/null 2>&1; then
+    show_status
+else
+    echo "❌ Falló. Revisa: journalctl -u ryzenadj@$PROFILE.service -b"
+    exit 1
+fi

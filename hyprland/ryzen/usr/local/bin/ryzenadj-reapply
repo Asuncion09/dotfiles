@@ -1,0 +1,20 @@
+#!/bin/bash
+# /usr/local/bin/ryzenadj-reapply
+# Reaplica el perfil elegido tras un cambio de AC/batería
+sleep 3   # el firmware resetea justo después del evento
+
+chosen=balanced
+for p in gaming power-save balanced; do
+    systemctl is-enabled --quiet "ryzenadj@$p.service" && { chosen=$p; break; }
+done
+
+on_ac=0
+for ps in /sys/class/power_supply/*; do
+    [[ "$(cat "$ps/type" 2>/dev/null)" == "Mains" && "$(cat "$ps/online" 2>/dev/null)" == "1" ]] && on_ac=1
+done
+
+# Gaming solo con corriente: en batería aplica balanced, pero sin cambiar tu elección
+if [[ "$chosen" == "gaming" && $on_ac -eq 0 ]]; then
+    exec /usr/local/bin/ryzenadj-balanced.sh
+fi
+exec /usr/local/bin/ryzenadj-$chosen.sh

@@ -1,0 +1,6 @@
+[Unit]
+Description=Reapply RyzenAdj profile if firmware changed the limits
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ryzenadj-watchdog

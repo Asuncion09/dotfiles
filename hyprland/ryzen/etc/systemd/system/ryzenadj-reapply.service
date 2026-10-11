@@ -1,0 +1,6 @@
+[Unit]
+Description=Reapply RyzenAdj profile after AC/battery change
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ryzenadj-reapply

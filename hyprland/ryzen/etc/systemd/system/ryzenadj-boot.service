@@ -1,0 +1,12 @@
+[Unit]
+Description=RyzenAdj default profile at boot (balanced)
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStartPre=-/usr/bin/systemctl disable ryzenadj@gaming.service ryzenadj@power-save.service
+ExecStartPre=-/usr/bin/systemctl enable ryzenadj@balanced.service
+ExecStart=/usr/local/bin/ryzenadj-balanced.sh
+
+[Install]
+WantedBy=multi-user.target

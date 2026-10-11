@@ -1,0 +1,20 @@
+#!/bin/bash
+# Reaplica el perfil elegido si el firmware cambió los límites
+
+chosen=balanced
+for p in gaming power-save balanced; do
+    systemctl is-enabled --quiet "ryzenadj@$p.service" && { chosen=$p; break; }
+done
+
+on_ac=0
+for ps in /sys/class/power_supply/*; do
+    [[ "$(cat "$ps/type" 2>/dev/null)" == "Mains" && "$(cat "$ps/online" 2>/dev/null)" == "1" ]] && on_ac=1
+done
+# Gaming solo con corriente
+[[ "$chosen" == "gaming" && $on_ac -eq 0 ]] && chosen=balanced
+
+want=$(grep -oP -- '--fast-limit=\K[0-9]+' "/usr/local/bin/ryzenadj-$chosen.sh")
+cur=$(/usr/local/bin/ryzenadj -i 2>/dev/null | awk -F'|' '/PPT LIMIT FAST/ { gsub(/ /, "", $3); printf "%.0f", $3 * 1000; exit }')
+
+[[ -n "$want" && "$cur" != "$want" ]] && exec "/usr/local/bin/ryzenadj-$chosen.sh"
+exit 0
