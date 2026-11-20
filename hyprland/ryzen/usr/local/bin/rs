@@ -128,9 +128,8 @@ fi
 
 # Gaming solo con cargador conectado
 if [[ "$PROFILE" == "gaming" ]] && ! on_ac; then
-    echo "⚠️  Estás en batería y gaming pide hasta 45W."
-    read -rp "¿Continuar de todos modos? [y/N] " ans
-    [[ "$ans" =~ ^[yYsS]$ ]] || exit 1
+    echo "❌ El perfil gaming (45W) requiere estar conectado a la corriente."
+    exit 1
 fi
 
 # Solo el perfil elegido queda habilitado para resume
@@ -138,9 +137,10 @@ for p in "${PROFILES[@]}"; do
     [[ "$p" != "$PROFILE" ]] && sudo systemctl disable "ryzenadj@$p.service" >/dev/null 2>&1
 done
 
-if sudo systemctl enable --now "ryzenadj@$PROFILE.service" >/dev/null 2>&1; then
+if sudo systemctl enable "ryzenadj@$PROFILE.service" >/dev/null 2>&1 \
+   && sudo "$BIN/ryzenadj-$PROFILE.sh" >/dev/null; then
     show_status
 else
-    echo "❌ Falló. Revisa: journalctl -u ryzenadj@$PROFILE.service -b"
+    echo "❌ Falló al aplicar el perfil $PROFILE"
     exit 1
 fi
